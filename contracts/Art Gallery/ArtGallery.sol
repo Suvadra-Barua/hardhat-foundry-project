@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: Unlicensed
-pragma solidity ^0.8.20;
+pragma solidity ^0.8.9;
 
 import "./IERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -24,9 +24,11 @@ contract ArtGallery is Ownable {
     mapping(address => uint256[]) addressToNFTs;
 
     constructor(
-        address artNFTAddress,
-        address initialOwner
-    ) Ownable(initialOwner) {
+        address artNFTAddress
+    )
+        // address initialOwner
+        Ownable()
+    {
         artNFT = IERC721(artNFTAddress);
     }
 
